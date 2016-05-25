@@ -13,19 +13,20 @@ var anagram  = function(str1, str2){
 	str2Arr = str2.split("").sort(); //["i", "i", "n", "r", "s"]
 	console.log(str2Arr);
 
-	//var anagram = true;
+	var anagram = true;
 	str1Arr.forEach( function(element, index) {
 		if (str2Arr[index] !== element)
 		{
-			console.log(str2Arr[index])
-			return false;  ///this returns from the callback function...not from our original anagram fun//wrong sol
+			anagram = false;
+			return 5;  ///this returns from the callback function...whatever return you give does not matter..
+			/// best to put return;
 		}
 	});
-	return true;
+	return anagram;
 
 
 
 }
 
-console.log(anagram("ksrini", "inirss"));
+console.log(anagram("srini", "inirs"));
 
