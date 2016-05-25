@@ -1,2 +1,24 @@
-var arr = new Array(256).fill(false);
-console.log(arr); //easiet way to fill an array..
+// Write a method to replace all spaces in a string with '%20'. You may assume that the
+// string has sufficient space at the end of the string to hold the additional characters,
+// and that you are given the "true" length of the string. (Note: if implementing in Java,
+// please use a character array so that you can perform this operation in place.)
+
+
+
+
+// This could be done fairly simply by using the String.replace() function. 
+// I elected to not do that for the sake of making this problem a little less trivial
+// */
+
+function replaceWhiteSpace(str) {
+	var outputArr = [];
+	for (var i=0; i< str.length; i++) {
+		if (str[i] === ' ') {
+			outputArr.push('%20');
+		}
+		else outputArr.push(str[i]);
+ 	}
+ 	return outputArr.join('');
+}
+
+console.log(replaceWhiteSpace("Hello World Srini"))  //Hello%20World%20Srini
