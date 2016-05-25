@@ -6,17 +6,24 @@
 var anagram  = function(str1, str2){
 	
 	//do with one map
+	if (str1.length !== str2.length) 
+		return false;
 	var map =[];
 	for (var i=0 ; i < str1.length ; ++i){
 		map[str1[i]] = (typeof map[str1[i]] === 'undefined')? 1: ++map[str1[i]];
-
-		   //have to use quotations for undefined..
-
 	}	
-	console.log(map) //[s: 1, r: 1, i: 2, n: 1]
 
+	for (var j=0; j <str2.length;++j){
+		if (map[str2[j]] >0){
+			--map[str2[j]];
+		}
+		else
+			return false;
+	}
+	//console.log(map)
+	return true;
 
 }
 
-console.log(anagram("srini", "inirs"));
+console.log(anagram("srinffi", "iffnir"));
 
