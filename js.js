@@ -1,40 +1,12 @@
-// Assume you have a method isSubstring which checks if one word is a substring
-// of another. Given two strings, si and s2, write code to check Ifs2 is a rotation of si
-// using only onecalltoisSubstring (e.g., "waterbottLe" is a rotation of "erbottLewat").
+///remove duplicates in a string
 
+var str1 = "Helloooo";
 
-
-// String.prototype.indexOf returns the position of the string in the other string. If not found, it will return -1:
-
-// var string = "foo",
-//     substring = "oo";
-// console.log(string.indexOf(substring) > -1);
-
-
-// var str1 = "sssrini";
-// var str2 = "rini";
-
-// console.log(str1.indexOf("rini"));  //3
-// console.log(str1.indexOf("rdi"));  //-1
-
-
-var isSubstring = function(str1, str2){
-
-	return (str1.indexOf(str2) > -1) ? true:false;
-
-}
-
-// console.log(isSubstring("srini", "rfini"))
-
-
-
-var rotation = function(str1, str2){
-
-	if (str1.length !== str2.length || !str1.length){
-		return false; ////strings must be of equal length and str1 should not be empty
+var result ="";
+for (var i=0 ; i < str1.length; ++i){
+	console.log(result.indexOf(str1[i]))
+	if (result.indexOf(str1[i]) === -1){  //leka pothe add cheyi
+		result +=str1[i];
 	}
-	var newStr1 = str1+str1;
-
-	return isSubstring(newStr1, str2);
-
 }
+console.log(result) //Helo
