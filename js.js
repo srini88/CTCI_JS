@@ -1,31 +1,40 @@
-// Implement a method to perform basic string compression using the counts of
-// repeated characters. For example, the string aabcccccaaa would become
-// a2blc5a3. If the "compressed" string would not become smaller than the original
-// string, your method should return the original string.
+// Assume you have a method isSubstring which checks if one word is a substring
+// of another. Given two strings, si and s2, write code to check Ifs2 is a rotation of si
+// using only onecalltoisSubstring (e.g., "waterbottLe" is a rotation of "erbottLewat").
 
 
-var compression = function(str){
 
-	var output ="";
-	var count =1;
-	var temp = str[0];
+// String.prototype.indexOf returns the position of the string in the other string. If not found, it will return -1:
 
-	for (var i=1; i < str.length ;++i){
-		if (str[i] === temp){
-			++count;
-		}
-		else{
-			output += temp+count;  /// having a[i] +count giving wrong
-			temp = str[i];
-			count =1;
-		}
-
-	}
-	output += temp+count;
-	return output;
+// var string = "foo",
+//     substring = "oo";
+// console.log(string.indexOf(substring) > -1);
 
 
+// var str1 = "sssrini";
+// var str2 = "rini";
+
+// console.log(str1.indexOf("rini"));  //3
+// console.log(str1.indexOf("rdi"));  //-1
+
+
+var isSubstring = function(str1, str2){
+
+	return (str1.indexOf(str2) > -1) ? true:false;
 
 }
 
-console.log(compression("aabcccccaaa"));
+// console.log(isSubstring("srini", "rfini"))
+
+
+
+var rotation = function(str1, str2){
+
+	if (str1.length !== str2.length || !str1.length){
+		return false; ////strings must be of equal length and str1 should not be empty
+	}
+	var newStr1 = str1+str1;
+
+	return isSubstring(newStr1, str2);
+
+}
