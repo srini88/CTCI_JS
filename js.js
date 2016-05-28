@@ -1,24 +1,35 @@
 
 
-///do multiplication with just addition
-function mult (a, b){
-	
-	if (abs(a) < abs(b)) return (mult(b,a));
+//division works for all cases...
 
-	//now inside
-	//7 and 3, b is 3 here//
-	var temp  = abs(a);
+function division(a, b){
+
+	var absa = abs(a);
+	var absb = abs(b);
+
+	if (absa < absb ) return 0;
+	if (absb ===0) return "cannot divide by zero";
+	if (a === 0) return 0;  //if a is zero
+	//we get into 
+
 	var result = 0;
-	for (var i=0; i < abs(b); ++i){
-		result += temp;
+	var count = 0;
+	while(result <= absa){
+
+		result += absb;
+		++count;
 	}
-	//if both are either positive or negative..return result.
+	count = --count;
 	if ((a <0 &&  b < 0) || (a>0 && b>0))
-		return result;
+		return count;
 	else
-		return negate(result);
+		return negate(count);
 
 }
+
+console.log(division(25, 0.8))
+
+
 
 //absolute function to always return +ve if x is +ve or -ve
 function abs (x){
@@ -47,4 +58,4 @@ function negate(x){
 
 //console.log(negate(5))
 
-console.log(mult(3, 0));
+//console.log(division(15, 3));
