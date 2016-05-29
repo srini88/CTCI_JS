@@ -1,31 +1,19 @@
-//closures say local variables for a function is not deallocated after the function has returned..
-function outerFunction(x){
-    return function(y){
-        x=x+1;
-        console.log(x+y);
+///Loops and closures...
+
+//As closure tells you that innerFunc use the outer or upper scope variables copy..if it is not an object...it may cause problems
+
+var myFunctions ={};
+
+for (var i=0; i<3 ; i++){ //putting functions inside myFunctions..
+    myFunctions[i]=function(){
+        console.log("my Value: "+i);
     }
 }
+for (var j=0; j<3 ; j++){
+    myFunctions[j]();  //that's why parantheses to run them
+}
 
-var myVal = new Number(2); //myVal is an object
-console.log(myVal); //prints Number {[[PrimitiveValue]]: 2}
-
-
-var innerFunction  = outerFunction(myVal);
-innerFunction(10)   //im passing y as 10
-innerFunction(10)
-innerFunction(10)
-
-console.log(myVal);
-
-//look at my question
-//http://stackoverflow.com/questions/37506570/value-of-javascript-object-not-changing-pass-by-reference
-
-
-
-// var bb = 5;
-// function run() {
-//   var bb = 34;
-//   console.log(bb);  //34
-//   console.log( window.bb ); //the outerbb is attached to window...so this output prints 5..
-// }
-// run();
+//you get  all same shit...whyyyyyyyy
+//my value :#
+//my value :#
+//my value :#
