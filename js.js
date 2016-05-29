@@ -5,15 +5,19 @@
 var myFunctions ={};
 
 for (var i=0; i<3 ; i++){ //putting functions inside myFunctions..
-    myFunctions[i]=function(){
-        console.log("my Value: "+i);
-    }
-}
-for (var j=0; j<3 ; j++){
-    myFunctions[j]();  //that's why parantheses to run them
+
+    //in the previous commit...you are setting the function..bbut you are not running the function...very very imp....
+    //////the function wont run until you call them..we want it to run and save the context of i...
+    myFunctions[i] = (function(i){
+        console.log("my value: "+i);
+    })(i);
+
 }
 
-//you get  all same shit...whyyyyyyyy
-//my value :#
-//my value :#
-//my value :#
+// for (var j=0; j<3 ; j++){
+//     myFunctions[j]();  //that's why parantheses to run them
+// }
+console.log(myFunctions)
+//prints Object {0: undefined, 1: undefined, 2: undefined}
+
+//because the function has not returned.. //worng syntax....you got to return something...and that return has to be a function..because you are storing function inside myFunctions[i]
