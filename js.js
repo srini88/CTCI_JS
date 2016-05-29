@@ -1,11 +1,16 @@
-(function() {
-   var a = b = 5;
-})();
+// Question 2: Create “native” methods
+// Define a repeatify function on the String object. The function accepts an integer that specifies how many times the string has to be repeated. The function returns the string repeated the number of times specified. For example:
 
-console.log(b);
 
-//https://www.sitepoint.com/5-typical-javascript-interview-exercises/
+String.prototype.repeatify = function(n){
+    //this will be the str
+    var str = this;
+    console.log(this) //String {0: "h", 1: "e", 2: "l", 3: "l", 4: "o", length: 5, [[PrimitiveValue]]: "hello"}
+}
 
-// The trick of this question is that in the IIFE there are two assignments but the variable a is declared using the keyword var. What this means is that a is a local variable of the function. On the contrary, b is assigned to the global scope.
 
-// The other trick of this question is that it doesn’t use strict mode ('use strict';) inside the function. If strict mode was enabled, the code would raise the error Uncaught ReferenceError: b is not defined. 
+console.log('hello'.repeatify(3));
+// Should print hellohellohello.
+
+
+
