@@ -5,7 +5,13 @@
 String.prototype.repeatify = function(n){
     //this will be the str
     var str = this;
-    console.log(this) //String {0: "h", 1: "e", 2: "l", 3: "l", 4: "o", length: 5, [[PrimitiveValue]]: "hello"}
+    var output ="";
+    //console.log(str+str); //hellohello //working this +this..I think to string will be called I guess by default..
+    while (n!=0){
+       output+= str;
+       --n; 
+    }
+    return output;
 }
 
 
@@ -13,4 +19,15 @@ console.log('hello'.repeatify(3));
 // Should print hellohellohello.
 
 
+///my solution above..
+///actual solution
+// String.prototype.repeatify = String.prototype.repeatify || function(times) {
+//    var str = '';
+
+//    for (var i = 0; i < times; i++) {
+//       str += this;
+//    }
+
+//    return str;
+// };
 
