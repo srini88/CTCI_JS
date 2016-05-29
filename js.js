@@ -1,33 +1,29 @@
-// Question 2: Create “native” methods
-// Define a repeatify function on the String object. The function accepts an integer that specifies how many times the string has to be repeated. The function returns the string repeated the number of times specified. For example:
-
-
-String.prototype.repeatify = function(n){
-    //this will be the str
-    var str = this;
-    var output ="";
-    //console.log(str+str); //hellohello //working this +this..I think to string will be called I guess by default..
-    while (n!=0){
-       output+= str;
-       --n; 
-    }
-    return output;
+function test() {
+   console.log(a);
+   console.log(foo());
+   
+   var a = 1;
+   function foo() {
+      return 2;
+   }
 }
 
+test();
+// Answer
+// The result of this code is undefined and 2.
 
-console.log('hello'.repeatify(3));
-// Should print hellohellohello.
+// The reason is that both variables and functions are hoisted (moved at the top of the function) but variables don’t retain any assigned value. So, at the time the variable a is printed, it exists in the function (it’s declared) but it’s still undefined. Stated in other words, the code above is equivalent to the following:
 
+function test() {
+   var a;
+   function foo() {
+      return 2;
+   }
 
-///my solution above..
-///actual solution
-// String.prototype.repeatify = String.prototype.repeatify || function(times) {
-//    var str = '';
+   console.log(a);
+   console.log(foo());
+   
+   a = 1;
+}
 
-//    for (var i = 0; i < times; i++) {
-//       str += this;
-//    }
-
-//    return str;
-// };
-
+test();
